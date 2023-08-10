@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
+            $table->string('iso_code');
             $table->string('name');
             $table->string('symbol');
             $table->timestamps();
