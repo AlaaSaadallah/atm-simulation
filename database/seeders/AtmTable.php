@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Atm;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,13 +13,6 @@ class AtmTable extends Seeder
      */
     public function run()
     {
-        return collect([
-            (object) [
-                'name' => '',
-                'address' => '',
-                'is_deposital' => '',
-            ],
-
-        ]);
+        Atm::factory(5)->create();
     }
 }

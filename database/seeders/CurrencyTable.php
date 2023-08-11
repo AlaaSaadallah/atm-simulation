@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Currency;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,27 +13,31 @@ class CurrencyTable extends Seeder
      */
     public function run()
     {
-        return collect([
-            (object) [
+            Currency::create([
                 'iso_code' => 'SAR',
                 'name' => 'Saudi Riyal',
-                'sign' => 'SAR',
-            ],
-            (object) [
+                'symbol' => 'SAR',
+            ]);
+
+            Currency::create([
                 'iso_code' => 'USD',
                 'name' => 'American Dollar',
-                'sign' => '$',
-            ],
-            (object) [
+                'symbol' => '$',
+            ]);
+
+            Currency::create([
                 'iso_code' => 'EUR',
                 'name' => 'Euro',
-                'sign' => '€',
-            ],
-            (object) [
+                'symbol' => '€',
+            ]);
+
+            Currency::create([
                 'iso_code' => 'EGP',
                 'name' => 'Egyptian Pound',
-                'sign' => 'LE',
-            ],
-        ]);
+                'symbol' => 'LE',
+            ]);
+
+
+
     }
 }

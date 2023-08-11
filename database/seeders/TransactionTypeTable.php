@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TransactionType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,13 +13,12 @@ class TransactionTypeTable extends Seeder
      */
     public function run()
     {
-        return collect([
-            (object) [
-                'name' => 'deposit',
-            ],
-            (object) [
-                'name' => 'withdraw',
-            ],
+        TransactionType::create([
+            'name' => 'deposit',
+        ]);
+        
+        TransactionType::create([
+            'name' => 'withdraw',
         ]);
     }
 }
