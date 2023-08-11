@@ -15,5 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth API
-Route::post('signin', 'App\Http\Controllers\AuthController@signin')->name('signin');
+Route::post('signin', 'App\Http\Controllers\AuthController@signIn');
 
+Route::group(
+    [
+        'middleware' => [
+            'auth:api',
+        ],
+    ],
+    function () {
+        Route::post('signout', 'App\Http\Controllers\AuthController@signOut');
+    }
+);

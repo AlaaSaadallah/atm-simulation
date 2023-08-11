@@ -17,5 +17,6 @@ return [
     'pin' => 'The provided PIN is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'blocked_card' => 'This card is blocked, Please visit our bank to check the problem',
-    'success' => 'Welcome back'
+    'success' => 'Welcome back',
+    'sign_out' => 'Thanks for choose our Bank'
 ];

@@ -19,4 +19,13 @@ class AuthController extends Controller
             'user' => new UserResource($user),
         ]);
     }
+
+    public function signOut()
+    {
+        auth('api')->user()->token()->revoke();
+        return response([
+            'message' => __('auth.sign_out'),
+        ]);
+    }
+
 }
