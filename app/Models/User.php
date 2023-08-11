@@ -18,9 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'phone',
+        'address',
         'email',
-        'password',
+        'card_number',
+        'pin',
+        'is_blocked'
     ];
 
     /**
@@ -29,7 +34,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'pin',
         'remember_token',
     ];
 
@@ -40,6 +45,15 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'pin' => 'hashed',
+        'is_blocked' => 'boolean'
     ];
+
+     ## Relations
+
+     function accounts()
+     {
+         return $this->belongsToMany(Account::class);
+     }
+
 }
