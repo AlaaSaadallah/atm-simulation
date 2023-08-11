@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Account;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -33,5 +35,7 @@ class UserTable extends Seeder
             'pin' => '123457',
             'is_blocked' => true
         ]);
+
+        Account::factory()->state(['user_id'=>1])->create();
     }
 }
