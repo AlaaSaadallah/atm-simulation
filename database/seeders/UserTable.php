@@ -36,6 +36,6 @@ class UserTable extends Seeder
             'is_blocked' => true
         ]);
 
-        Account::factory()->state(['user_id'=>1])->create();
+        Account::factory()->state(['user_id'=>1, 'is_default'=>true])->create();
     }
 }

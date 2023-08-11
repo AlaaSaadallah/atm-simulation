@@ -15,12 +15,23 @@ class Account extends Model
         'balance',
         'branch_number',
         'branch_name',
+        'is_default'
+    ];
+
+    protected $casts = [
+        'is_default' => 'boolean'
     ];
 
     protected $dates = [
         'created_at',
         'updated_at',
     ];
+
+
+    public function getRouteKeyName()
+    {
+        return 'reference_number';
+    }
 
 
     ## Relations
@@ -42,7 +53,12 @@ class Account extends Model
 
 
     ## Getters & Setters
-    
+
+    public function setReferenceNumberAttribute()
+    {
+        $this->attributes['reference_number'] = str_pad($this->id, 7, "0", STR_PAD_LEFT);
+    }
+
     public function getBalanceAttribute()
     {
         return $this->attributes['balance'] / 100;
