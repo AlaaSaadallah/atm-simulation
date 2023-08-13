@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ Route::group(
         Route::post('signout', 'App\Http\Controllers\AuthController@signOut');
         Route::apiResource('accounts', AccountController::class)->only('index','show');
         Route::post('accounts/{account}/operation', 'App\Http\Controllers\AccountOperationController@withdraw')->name('withdraw');
-        // Route::apiResource('transactions', TransactionController::class)->only(['index']);
+        Route::apiResource('transactions', TransactionController::class)->only(['index']);
 
     }
 );

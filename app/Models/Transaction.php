@@ -42,6 +42,7 @@ class Transaction extends Model
         return $this->belongsTo(TransactionType::class, 'type_id');
     }
 
+
     ## Getters & Setters
 
     //  balance before
@@ -66,17 +67,7 @@ class Transaction extends Model
         $this->attributes['balance_after'] = $value * 100;
     }
 
-    //  amount
-    public function getAmountAttribute()
-    {
-        return $this->attributes['amount'] / 100;
-    }
-
-    public function setBAmountAttribute($value)
-    {
-        $this->attributes['amount'] = $value * 100;
-    }
-
+   
 
     ## Query Scope Methods
 
@@ -84,4 +75,9 @@ class Transaction extends Model
     {
         return $accountId > 0 ? $query->where('account_id', $accountId)->whereDate('created_at', Carbon::today()) : $query;
     }
+
+    // public function scopeOfUser($query, int $userId = 0)
+    // {
+    //     return $accountId > 0 ? $query->where('account_id', $accountId)->whereDate('created_at', Carbon::today()) : $query;
+    // }
 }

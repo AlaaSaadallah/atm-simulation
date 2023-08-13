@@ -56,4 +56,8 @@ class User extends Authenticatable
          return $this->hasMany(Account::class);
      }
 
+     public function transactions()
+     {
+         return $this->hasManyThrough(Transaction::class, Account::class)->orderBy('created_at', 'DESC');
+     }
 }
