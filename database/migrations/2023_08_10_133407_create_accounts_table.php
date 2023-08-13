@@ -16,9 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('currency_id');
 
+            $table->string('account_number')->unique();
+            $table->string('iban');
+
             $table->unsignedBigInteger('balance')->default(0);
             $table->string('branch_number')->index();
             $table->string('branch_name');
+            $table->boolean('is_default')->default(false);
             $table->timestamps();
         });
     }

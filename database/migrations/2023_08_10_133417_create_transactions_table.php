@@ -16,7 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('account_id')->index();
             $table->unsignedBigInteger('atm_id');
             $table->unsignedBigInteger('type_id');
-            $table->unsignedBigInteger('amount');
+            $table->string('reference_number')->unique();
+            $table->bigInteger('amount');
             $table->unsignedBigInteger('balance_before');
             $table->unsignedBigInteger('balance_after');
             $table->timestamps();

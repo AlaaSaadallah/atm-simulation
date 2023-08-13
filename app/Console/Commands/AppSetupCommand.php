@@ -38,6 +38,7 @@ class AppSetupCommand extends Command
         $this->line('-----------------------');
         if ($this->confirm('Refresh all database tables. Do you wish to continue?')) {
             Schema::disableForeignKeyConstraints();
+            \shell_exec("composer require laravel/passport -W");
             $this->call("migrate:fresh");
             $this->call("passport:install");
             $this->line("✔");

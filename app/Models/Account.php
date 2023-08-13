@@ -15,12 +15,24 @@ class Account extends Model
         'balance',
         'branch_number',
         'branch_name',
+        'iban',
+        'is_default'
+    ];
+
+    protected $casts = [
+        'is_default' => 'boolean'
     ];
 
     protected $dates = [
         'created_at',
         'updated_at',
     ];
+
+
+    public function getRouteKeyName()
+    {
+        return 'account_number';
+    }
 
 
     ## Relations
@@ -32,7 +44,7 @@ class Account extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function currency()
@@ -42,7 +54,12 @@ class Account extends Model
 
 
     ## Getters & Setters
-    
+
+    public function setReferenceNumberAttribute()
+    {
+        $this->attributes['reference_number'] = str_pad($this->id, 7, "0", STR_PAD_LEFT);
+    }
+
     public function getBalanceAttribute()
     {
         return $this->attributes['balance'] / 100;
@@ -52,4 +69,6 @@ class Account extends Model
     {
         $this->attributes['balance'] = $value * 100;
     }
+
+
 }

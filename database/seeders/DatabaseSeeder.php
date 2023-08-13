@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AtmTable::class,
             CurrencyTable::class,
-            TransactionType::class,
+            TransactionTypeTable::class,
             UserTable::class,
         ]);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +14,7 @@ class Transaction extends Model
         'account_id',
         'atm_id',
         'type_id',
+        'reference_number',
         'amount',
         'balance_before',
         'balance_after',
@@ -40,39 +42,42 @@ class Transaction extends Model
         return $this->belongsTo(TransactionType::class, 'type_id');
     }
 
-     ## Getters & Setters
+
+    ## Getters & Setters
 
     //  balance before
-     public function getBalanceBeforeAttribute()
-     {
-         return $this->attributes['balance_before'] / 100;
-     }
+    public function getBalanceBeforeAttribute()
+    {
+        return $this->attributes['balance_before'] / 100;
+    }
 
-     public function setBalanceBeforeAttribute($value)
-     {
-         $this->attributes['balance_before'] = $value * 100;
-     }
+    public function setBalanceBeforeAttribute($value)
+    {
+        $this->attributes['balance_before'] = $value * 100;
+    }
 
     //  balance after
-     public function getBalanceAfterAttribute()
-     {
-         return $this->attributes['balance_after'] / 100;
-     }
+    public function getBalanceAfterAttribute()
+    {
+        return $this->attributes['balance_after'] / 100;
+    }
 
-     public function setBalanceAfterAttribute($value)
-     {
-         $this->attributes['balance_after'] = $value * 100;
-     }
+    public function setBalanceAfterAttribute($value)
+    {
+        $this->attributes['balance_after'] = $value * 100;
+    }
 
-    //  amount
-     public function getAmountAttribute()
-     {
-         return $this->attributes['amount'] / 100;
-     }
+   
 
-     public function setBAmountAttribute($value)
-     {
-         $this->attributes['amount'] = $value * 100;
-     }
+    ## Query Scope Methods
 
+    public function scopeOfToday($query, int $accountId = 0)
+    {
+        return $accountId > 0 ? $query->where('account_id', $accountId)->whereDate('created_at', Carbon::today()) : $query;
+    }
+
+    // public function scopeOfUser($query, int $userId = 0)
+    // {
+    //     return $accountId > 0 ? $query->where('account_id', $accountId)->whereDate('created_at', Carbon::today()) : $query;
+    // }
 }

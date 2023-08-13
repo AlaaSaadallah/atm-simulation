@@ -20,9 +20,12 @@ class AccountFactory extends Factory
         return [
             'user_id' => User::factory(),
             'currency_id' => fake()->numberBetween(1,4),
+            'account_number' => fake()->uuid(),
+            'iban' => fake()->iban(),
             'balance' => fake()->numberBetween(0,50000),
             'branch_number' => fake()->randomDigit(),
             'branch_name' => fake()->word(),
+            'is_default' => fake()->boolean()
         ];
     }
 }
