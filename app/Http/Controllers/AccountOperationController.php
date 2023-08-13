@@ -7,7 +7,7 @@ use App\Http\Resources\AccountResource;
 use App\Models\Account;
 use Illuminate\Http\Request;
 
-class AccountTransactionController extends Controller
+class AccountOperationController extends Controller
 {
 
     /**
