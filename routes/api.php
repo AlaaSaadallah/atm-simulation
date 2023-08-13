@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth API
-Route::post('signin', 'App\Http\Controllers\AuthController@signIn');
+Route::post('signin', 'App\Http\Controllers\AuthController@signIn')->name('signin');
 
 Route::group(
     [
@@ -26,7 +26,7 @@ Route::group(
         ],
     ],
     function () {
-        Route::post('signout', 'App\Http\Controllers\AuthController@signOut');
+        Route::post('signout', 'App\Http\Controllers\AuthController@signOut')->name('signout');
         Route::apiResource('accounts', AccountController::class)->only('index','show');
         Route::post('accounts/{account}/operation', 'App\Http\Controllers\AccountOperationController@withdraw')->name('withdraw');
         Route::apiResource('transactions', TransactionController::class)->only(['index']);

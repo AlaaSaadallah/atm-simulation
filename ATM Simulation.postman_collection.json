@@ -1,0 +1,1304 @@
+{
+	"info": {
+		"_postman_id": "d25438bc-d530-4419-872d-0bb4e47ae2fe",
+		"name": "ATM Simulation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14118365"
+	},
+	"item": [
+		{
+			"name": "sign in",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "card_number",
+							"value": "12345678912345",
+							"type": "text"
+						},
+						{
+							"key": "pin",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{localhost}}/signin",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "faild",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "card_number",
+									"value": "123456789123450",
+									"type": "text"
+								},
+								{
+									"key": "pin",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/signin",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Aug 2023 22:41:59 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Aug 2023 22:41:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"These credentials do not match your records.\",\n    \"errors\": {\n        \"pin\": [\n            \"These credentials do not match your records.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "card_number",
+									"value": "12345678912345",
+									"type": "text"
+								},
+								{
+									"key": "pin",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/signin",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:54:05 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:54:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Welcome back\",\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNWRlOWY3Y2M5NjhmY2MyYTU1M2UyZjk1ZTlhNjI3NDMxM2M1ZGYyYjczMGYzMzQ5MTU3ODlhMTExZGQxOTdiMWJlNzI0YTdkZTgwYjEyMGQiLCJpYXQiOjE2OTE5MTY4NDUuMTI3MzgxLCJuYmYiOjE2OTE5MTY4NDUuMTI3MzgzLCJleHAiOjE2OTE5MTc3NDUuMTI0MzIyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.TucXlGiVQhsDjSaL-vQ7frLCeh3UMpj-U_EVMMIsgRkdygUgnnm6ZTJhlTTBIQiYR1EvmHopAMtd45lP6xfSNmNIEmhUDRq5VXhL1YIJHveRbr_Vz7YfUCDbIGkCrCyyJx9yO1qpllGQS2xkUklxciM0ev26tnziCdjvmfzJ0UvnAOnblTEJ2ku7jmH3Azhpggi3PBOGUHRSwocwSoSnbK9VzDh62_MTdf1UisdLOlz9nbjw303DDMmL1QwjHtRRtsMXw5_H-TCrlQ8meZO2EgOpUzIEd_2rZwMj_oXlylIhb-UCRN-iCAPfO_TQNapW4ATMlb3OryJGcVyopvJ0a4PpohA0g7ZYn5lX5hx3-IN7f9rSdFE73RZMniCi1sLK4jFsm-NR-IFhmG1A78fwBHwIdHfg4-NccZ91JBKx6WbsUCSvtFPCKH81ZgOb165UJryqbjUyOs2zmU9LV0C7LIKFk7raPdnkAJ2PIDlxP0X4NAGULyLZEM6Gpr9mwCbFQpBKip0MUnn-FU9NGqVSmU9ExsfYMQuhg4wWZPS4OC8Kc-CiB9r9JrDiapHlNICNjg4gx7x8O-2YO3GhPq_WiHUMo9jqU3QSbYp4DAir5TuVngFhYlSH0MnMAhGydChLe7wcgGa6SOkgusMKnCQMJsaBocaOwMXxD1HvtEqz0o4\",\n    \"user\": {\n        \"id\": 1,\n        \"first_name\": \"Alaa\",\n        \"last_name\": \"Ali\",\n        \"phone\": \"01147718188\",\n        \"address\": \"cairo\",\n        \"email\": \"alaa.saadallah96@gmail.com\",\n        \"card_number\": 12345678912345,\n        \"accounts\": [\n            {\n                \"balance\": 24869,\n                \"branch_number\": \"2\",\n                \"branch_name\": \"suscipit\",\n                \"iban\": \"MC5357995947953IILGP6CRYH82\",\n                \"is_default\": true,\n                \"currency\": {\n                    \"id\": 1,\n                    \"iso_code\": \"SAR\",\n                    \"name\": \"Saudi Riyal\",\n                    \"symbol\": \"SAR\",\n                    \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n                    \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "sign out",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/signout",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"signout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/signout",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"signout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Aug 2023 22:50:45 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Aug 2023 22:50:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Thanks for choose our Bank\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Accounts (index)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/accounts",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "faild",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/accounts",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Aug 2023 23:02:35 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Aug 2023 23:02:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/accounts",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:54:36 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:54:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"account_number\": \"b38c4f68-7bfe-3e2e-95c3-b38624f36c77\",\n            \"is_default\": true\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/accounts?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/accounts?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/accounts?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/accounts\",\n        \"per_page\": 5,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "balance inquiry\"account show\"",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/accounts/{{account_number}}?",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"accounts",
+						"{{account_number}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"description": "show use account number not Id "
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/accounts/{{account_number}}?",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts",
+								"{{account_number}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"description": "show use account number not Id "
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:54:19 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:54:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"account\": {\n        \"id\": 1,\n        \"balance\": 24869,\n        \"branch_number\": \"2\",\n        \"branch_name\": \"suscipit\",\n        \"iban\": \"MC5357995947953IILGP6CRYH82\",\n        \"is_default\": true,\n        \"currency\": {\n            \"id\": 1,\n            \"iso_code\": \"SAR\",\n            \"name\": \"Saudi Riyal\",\n            \"symbol\": \"SAR\",\n            \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n            \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "withdraw",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "amount",
+							"value": "1000",
+							"description": "'required|integer|between:50,1000'",
+							"type": "text"
+						},
+						{
+							"key": "atm_id",
+							"value": "1",
+							"description": "required|integer|exists in atms table",
+							"type": "text"
+						},
+						{
+							"key": "type_id",
+							"value": "1",
+							"description": "2-->withdraw  | 1-->deposit",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{localhost}}/accounts/{{account_number}}/operation",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"accounts",
+						"{{account_number}}",
+						"operation"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "faild",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "amount",
+									"value": "",
+									"description": "'required|integer|digits_between:50,1000',",
+									"type": "text"
+								},
+								{
+									"key": "atm_id",
+									"value": "",
+									"description": "required|integer|exists in atms table",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "",
+									"description": "1-->withdraw  | 2-->deposit",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/accounts/{{account_number}}/operation",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts",
+								"{{account_number}}",
+								"operation"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:23:14 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:23:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The amount field is required. (and 2 more errors)\",\n    \"errors\": {\n        \"amount\": [\n            \"The amount field is required.\"\n        ],\n        \"atm_id\": [\n            \"The atm id field must be an integer.\"\n        ],\n        \"type_id\": [\n            \"The type id field must be an integer.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "faild_currency",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "amount",
+									"value": "58",
+									"description": "'required|integer|digits_between:50,1000',",
+									"type": "text"
+								},
+								{
+									"key": "atm_id",
+									"value": "1",
+									"description": "required|integer|exists in atms table",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "1",
+									"description": "1-->withdraw  | 2-->deposit",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/accounts/{{account_number}}/operation",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts",
+								"{{account_number}}",
+								"operation"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:26:38 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:26:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"these currency denominations are not available\",\n    \"errors\": {\n        \"amount\": [\n            \"these currency denominations are not available\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "faild_daily_limit",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "amount",
+									"value": "1000",
+									"description": "'required|integer|between:50,1000'",
+									"type": "text"
+								},
+								{
+									"key": "atm_id",
+									"value": "1",
+									"description": "required|integer|exists in atms table",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "1",
+									"description": "1-->withdraw  | 2-->deposit",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/accounts/{{account_number}}/operation",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts",
+								"{{account_number}}",
+								"operation"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:30:42 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:30:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "54"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"you reached your withdrawal daily limit\",\n    \"errors\": {\n        \"amount\": [\n            \"you reached your withdrawal daily limit\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "amount exceed daily limit",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "amount",
+									"value": "1000",
+									"description": "'required|integer|between:50,1000'",
+									"type": "text"
+								},
+								{
+									"key": "atm_id",
+									"value": "1",
+									"description": "required|integer|exists in atms table",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "1",
+									"description": "1-->withdraw  | 2-->deposit",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/accounts/{{account_number}}/operation",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts",
+								"{{account_number}}",
+								"operation"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:50:56 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Aug 2023 20:50:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"This amount will exceed the daily limit\",\n    \"errors\": {\n        \"amount\": [\n            \"This amount will exceed the daily limit\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "amount",
+									"value": "1000",
+									"description": "'required|integer|between:50,1000'",
+									"type": "text"
+								},
+								{
+									"key": "atm_id",
+									"value": "1",
+									"description": "required|integer|exists in atms table",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "1",
+									"description": "1-->withdraw  | 2-->deposit",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/accounts/{{account_number}}/operation",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"accounts",
+								"{{account_number}}",
+								"operation"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:52:49 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 08:52:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Successful transaction, please wait for your money\",\n    \"account\": {\n        \"id\": 1,\n        \"balance\": 24869,\n        \"branch_number\": \"2\",\n        \"branch_name\": \"suscipit\",\n        \"iban\": \"MC5357995947953IILGP6CRYH82\",\n        \"is_default\": true,\n        \"currency\": {\n            \"id\": 1,\n            \"iso_code\": \"SAR\",\n            \"name\": \"Saudi Riyal\",\n            \"symbol\": \"SAR\",\n            \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n            \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/transactions",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/transactions",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 09:30:29 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 09:30:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 10,\n            \"reference_number\": \"TRA_W_64d8a2502ff52\",\n            \"amount\": 1000,\n            \"balance_before\": 17869,\n            \"balance_after\": 16869,\n            \"account\": {\n                \"balance\": 16869,\n                \"branch_number\": \"2\",\n                \"branch_name\": \"suscipit\",\n                \"iban\": \"MC5357995947953IILGP6CRYH82\",\n                \"is_default\": true,\n                \"currency\": {\n                    \"id\": 1,\n                    \"iso_code\": \"SAR\",\n                    \"name\": \"Saudi Riyal\",\n                    \"symbol\": \"SAR\",\n                    \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n                    \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n                }\n            },\n            \"atm\": {\n                \"id\": 1,\n                \"name\": \"Dustin Schamberger\",\n                \"address\": \"7324 Morissette Overpass Apt. 733\\nSouth Raquel, DC 67582-2576\",\n                \"is_deposital\": true\n            },\n            \"type\": {\n                \"id\": 1,\n                \"name\": \"deposit\"\n            }\n        },\n        {\n            \"id\": 9,\n            \"reference_number\": \"TRA_W_64d8a24f34bd4\",\n            \"amount\": 1000,\n            \"balance_before\": 18869,\n            \"balance_after\": 17869,\n            \"account\": {\n                \"balance\": 16869,\n                \"branch_number\": \"2\",\n                \"branch_name\": \"suscipit\",\n                \"iban\": \"MC5357995947953IILGP6CRYH82\",\n                \"is_default\": true,\n                \"currency\": {\n                    \"id\": 1,\n                    \"iso_code\": \"SAR\",\n                    \"name\": \"Saudi Riyal\",\n                    \"symbol\": \"SAR\",\n                    \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n                    \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n                }\n            },\n            \"atm\": {\n                \"id\": 1,\n                \"name\": \"Dustin Schamberger\",\n                \"address\": \"7324 Morissette Overpass Apt. 733\\nSouth Raquel, DC 67582-2576\",\n                \"is_deposital\": true\n            },\n            \"type\": {\n                \"id\": 1,\n                \"name\": \"deposit\"\n            }\n        },\n        {\n            \"id\": 8,\n            \"reference_number\": \"TRA_W_64d8a24e3ef17\",\n            \"amount\": 1000,\n            \"balance_before\": 19869,\n            \"balance_after\": 18869,\n            \"account\": {\n                \"balance\": 16869,\n                \"branch_number\": \"2\",\n                \"branch_name\": \"suscipit\",\n                \"iban\": \"MC5357995947953IILGP6CRYH82\",\n                \"is_default\": true,\n                \"currency\": {\n                    \"id\": 1,\n                    \"iso_code\": \"SAR\",\n                    \"name\": \"Saudi Riyal\",\n                    \"symbol\": \"SAR\",\n                    \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n                    \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n                }\n            },\n            \"atm\": {\n                \"id\": 1,\n                \"name\": \"Dustin Schamberger\",\n                \"address\": \"7324 Morissette Overpass Apt. 733\\nSouth Raquel, DC 67582-2576\",\n                \"is_deposital\": true\n            },\n            \"type\": {\n                \"id\": 1,\n                \"name\": \"deposit\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"reference_number\": \"TRA_W_64d8a24d3c54d\",\n            \"amount\": 1000,\n            \"balance_before\": 20869,\n            \"balance_after\": 19869,\n            \"account\": {\n                \"balance\": 16869,\n                \"branch_number\": \"2\",\n                \"branch_name\": \"suscipit\",\n                \"iban\": \"MC5357995947953IILGP6CRYH82\",\n                \"is_default\": true,\n                \"currency\": {\n                    \"id\": 1,\n                    \"iso_code\": \"SAR\",\n                    \"name\": \"Saudi Riyal\",\n                    \"symbol\": \"SAR\",\n                    \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n                    \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n                }\n            },\n            \"atm\": {\n                \"id\": 1,\n                \"name\": \"Dustin Schamberger\",\n                \"address\": \"7324 Morissette Overpass Apt. 733\\nSouth Raquel, DC 67582-2576\",\n                \"is_deposital\": true\n            },\n            \"type\": {\n                \"id\": 1,\n                \"name\": \"deposit\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"reference_number\": \"TRA_W_64d8a24c58e38\",\n            \"amount\": 1000,\n            \"balance_before\": 21869,\n            \"balance_after\": 20869,\n            \"account\": {\n                \"balance\": 16869,\n                \"branch_number\": \"2\",\n                \"branch_name\": \"suscipit\",\n                \"iban\": \"MC5357995947953IILGP6CRYH82\",\n                \"is_default\": true,\n                \"currency\": {\n                    \"id\": 1,\n                    \"iso_code\": \"SAR\",\n                    \"name\": \"Saudi Riyal\",\n                    \"symbol\": \"SAR\",\n                    \"created_at\": \"2023-08-13T08:37:43.000000Z\",\n                    \"updated_at\": \"2023-08-13T08:37:43.000000Z\"\n                }\n            },\n            \"atm\": {\n                \"id\": 1,\n                \"name\": \"Dustin Schamberger\",\n                \"address\": \"7324 Morissette Overpass Apt. 733\\nSouth Raquel, DC 67582-2576\",\n                \"is_deposital\": true\n            },\n            \"type\": {\n                \"id\": 1,\n                \"name\": \"deposit\"\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "no transaction",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/transactions",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 09:40:00 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Aug 2023 09:40:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.12-1ubuntu4.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"there is no transactions\"\n}"
+				}
+			]
+		}
+	]
+}
