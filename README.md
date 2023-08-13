@@ -18,10 +18,14 @@ ATM simulation is a simple apis app that acts as an atm machine.
 ```bash
 git clone https://github.com/AlaaSaadallah/atm-simulation.git
 ```
-2- just run this command to install all dependencies
+2- create your .env file
+
+3- just run this command to install all dependencies
 
 ```bash
+composer update
 php artisan app:setup
+php artisan serve
 ```
 
 3- import the Postman collection file named `ATM Simulation.postman_collection.json` then set the global variables:
