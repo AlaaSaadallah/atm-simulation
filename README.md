@@ -33,6 +33,11 @@ php artisan serve
 
 `{{loacalhost}}` , `{{access_token}}` , `{{account_number}}`
  
+## Test User
+
+card_number = 12345678912345
+
+pin = 123456
 
 
 ## Contributing
