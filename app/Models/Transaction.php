@@ -14,6 +14,7 @@ class Transaction extends Model
         'account_id',
         'atm_id',
         'type_id',
+        'reference_number',
         'amount',
         'balance_before',
         'balance_after',

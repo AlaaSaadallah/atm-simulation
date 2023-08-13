@@ -16,7 +16,7 @@ class AccountSimpleResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'reference_number' => $this->reference_number,
+            'account_number' => $this->account_number,
             'is_default' => $this->is_default
         ];
     }

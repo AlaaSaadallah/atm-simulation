@@ -15,6 +15,7 @@ class Account extends Model
         'balance',
         'branch_number',
         'branch_name',
+        'iban',
         'is_default'
     ];
 
@@ -30,7 +31,7 @@ class Account extends Model
 
     public function getRouteKeyName()
     {
-        return 'reference_number';
+        return 'account_number';
     }
 
 
@@ -69,5 +70,5 @@ class Account extends Model
         $this->attributes['balance'] = $value * 100;
     }
 
-    
+
 }

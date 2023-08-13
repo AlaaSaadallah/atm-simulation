@@ -71,6 +71,7 @@ class WithdrawRequest extends FormRequest
                 'account_id' => $this->account->id,
                 'atm_id' => $this->atm_id,
                 'type_id' => $this->type_id,
+                'reference_number' => uniqid("TRA_W_"),
                 'amount' => $this->amount,
                 'balance_before' => $this->account->balance,
                 'balance_after' => $this->account->balance - $this->amount,

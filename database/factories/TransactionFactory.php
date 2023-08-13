@@ -22,6 +22,7 @@ class TransactionFactory extends Factory
             'account_id' => Account::factory(),
             'atm_id' => Atm::factory(),
             'type_id' => fake()->numberBetween(1,2),
+            'transaction_number' => uniqid("trans_",true) ,
             'amount' => fake()->numberBetween(0,50000),
             'balance_before' => fake()->numberBetween(0,50000),
             'balance_after' => fake()->numberBetween(0,50000),

@@ -18,6 +18,7 @@ class AccountResource extends JsonResource
             'balance' => $this->balance,
             'branch_number' => $this->branch_number,
             'branch_name' => $this->branch_name,
+            'iban' => $this->iban,
             'is_default' => $this->is_default,
             'currency' => new CurrencyResource($this->currency),
         ];
